@@ -9,9 +9,7 @@ new Vue ({
                 name: '',
                 value: ''
             },
-            contacts: [
-                {id: 1, name: 'sudo', value: '+7 958-555-54-21', marked: false}
-            ]
+            contacts: []
         }
     },
     computed: {
@@ -37,3 +35,22 @@ new Vue ({
     }
 })
 
+async function req(url, method='GET', data = null) {
+    try {
+        const headers = {}
+        let body
+        if (data) {
+            headers['Content-Type'] = 'application/json'
+            body = JSON.stringify(data)
+        }
+        const res = await fetch(url, {
+            method,
+            headers,
+            body
+        })
+        return await res.json()
+    } catch (e) {
+        console.warn("Eroor", e.message)
+    }
+
+}
