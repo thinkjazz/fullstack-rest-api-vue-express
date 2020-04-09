@@ -2,7 +2,9 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
-
+const CONTACT = [
+    {id: 1, name: 'sudo', value: '+7 958-555-54-21', marked: false}
+]
 
 
 
