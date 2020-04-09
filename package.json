@@ -1,0 +1,22 @@
+{
+  "name": "fullstack-vue-node",
+  "version": "1.0.0",
+  "description": "api fullstack vue express node",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/thinkjazz/fullstack-rest-api-vue-express"
+  },
+  "keywords": [
+    "rest=api",
+    "vue",
+    "express",
+    "node",
+    "fullstack"
+  ],
+  "author": "thinkjazz",
+  "license": "MIT"
+}
