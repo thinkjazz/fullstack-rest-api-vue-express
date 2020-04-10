@@ -35,11 +35,16 @@ new Vue ({
             this.contacts.push(addContact)
             this.form.name = this.form.value = ''
         },
-        markContact(id) {
-            const contact = this.contacts.find(c => c.id === id)
-            contact.marked = true;
+        async markContact(id) {
+            let contact = this.contacts.find(c => c.id === id)
+            let updated = await req(`api/contacts/${id}`, 'PUT', {
+                ...contact,
+                marked: true
+            })
+            contact.marked = updated.markedgit;
         },
-        removeContact(id) {
+        async removeContact(id) {
+            req(`api/contacts/${id}`, 'DELETE')
             this.contacts = this.contacts.filter(c => c.id !== id)
 
         }

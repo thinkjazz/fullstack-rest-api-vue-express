@@ -3,7 +3,7 @@ const path = require('path');
 const {v4} = require('uuid');
 const app = express();
 
-const CONTACTS = [
+let CONTACTS = [
     {id: v4(), name: 'Sudo Rootovitch', value: '+7 958-555-54-21', marked: false}
 ]
 
@@ -20,6 +20,19 @@ app.post('/api/contacts', (req, res) => {
     let contact = {...req.body, id: v4(), marked: false}
     CONTACTS.push(contact)
     res.status(201).json(contact)
+})
+
+//DELETE
+
+app.delete('/api/contacts/:id', (req, res) => {
+    CONTACTS = CONTACTS.filter(c=> c.id !== req.params.id)
+    res.status(200).json({message: 'Контакт был удален'})
+})
+// PUT
+app.put('/api/contacts/:id', (req, res) => {
+    let index = CONTACTS.findIndex(c=> c.id === req.params.id)
+    CONTACTS[index] = req.body
+    res.json(CONTACTS[index])
 })
 
 
