@@ -41,7 +41,7 @@ new Vue ({
                 ...contact,
                 marked: true
             })
-            contact.marked = updated.markedgit;
+            contact.marked = updated.marked;
         },
         async removeContact(id) {
             req(`api/contacts/${id}`, 'DELETE')
