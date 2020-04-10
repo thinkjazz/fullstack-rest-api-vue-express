@@ -11,7 +11,7 @@ app.use(express.json())
 // GET
 app.get('/api/contacts', (req, res) => {
     res.status(200).json(CONTACTS)
-    console.log(data)
+
 })
 
 //POST
