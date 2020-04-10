@@ -1,6 +1,5 @@
 import Vue from 'https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.esm.browser.js';
 
-
 new Vue ({
     el: '#app',
     data(){
@@ -32,6 +31,11 @@ new Vue ({
             this.contacts = this.contacts.filter(c => c.id !== id)
 
         }
+    },
+    async mounted() {
+        let data = await req('/api/contacts')
+        this.contacts = data
+
     }
 })
 
@@ -50,7 +54,7 @@ async function req(url, method='GET', data = null) {
         })
         return await res.json()
     } catch (e) {
-        console.warn("Eroor", e.message)
+        console.warn("Error", e.message)
     }
 
 }
