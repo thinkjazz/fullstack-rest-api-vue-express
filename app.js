@@ -3,7 +3,7 @@ const path = require('path');
 const app = express();
 
 const CONTACTS = [
-    {id: 1, name: 'sudo', value: '+7 958-555-54-21', marked: false}
+    {id: 1, name: 'Sudo Rootovitch', value: '+7 958-555-54-21', marked: false}
 ]
 
 // GET
