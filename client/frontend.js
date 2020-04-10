@@ -28,10 +28,11 @@ new Vue ({
         }
     },
     methods: {
-        createContact() {
+        async createContact() {
             let {...contact} = this.form;
+            let addContact = await req('/api/contacts', 'POST', contact)
             console.log(contact)
-            this.contacts.push({...contact, id: +Date.now().toFixed(8), marked: false })
+            this.contacts.push(addContact)
             this.form.name = this.form.value = ''
         },
         markContact(id) {
